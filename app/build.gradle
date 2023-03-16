@@ -6,6 +6,10 @@ android {
     namespace 'com.example.racktrack'
     compileSdk 33
 
+    dataBinding {
+        enabled true
+    }
+
     defaultConfig {
         applicationId "com.example.racktrack"
         minSdk 30

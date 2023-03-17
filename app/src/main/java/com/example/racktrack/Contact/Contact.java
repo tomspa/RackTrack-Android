@@ -37,6 +37,6 @@ public class Contact {
 
     @Override
     public String toString() {
-        return this.getFirstName() + " " + this.getLastName() + ": " + this.getPhoneNumber();
+        return "☎ " + this.getFirstName() + " " + this.getLastName() + ": " + this.getPhoneNumber();
     }
 }

@@ -7,6 +7,18 @@
     android:background="@color/background"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/quoteButton"
+        android:layout_width="178dp"
+        android:layout_height="54dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/main"
+        android:text="Edit Quote"
+        app:cornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_contact_view"
         android:name="com.example.racktrack.Contact.ContactsFragment"
@@ -21,13 +33,12 @@
         android:id="@+id/exerciseButton"
         android:layout_width="178dp"
         android:layout_height="54dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="@color/main"
         android:text="Exercises"
         app:cornerRadius="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".QuoteEdit">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/quoteText"
+        android:layout_width="415dp"
+        android:layout_height="200dp"
+        android:hint="Type a quote to keep you inspired!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/quoteEditField"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:textSize="18sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/saveQuoteButton"
+        android:layout_width="392dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="24dp"
+        android:text="Save"
+        app:layout_constraintBottom_toTopOf="@+id/quoteText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

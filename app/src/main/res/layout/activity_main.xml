@@ -8,11 +8,14 @@
     tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_contact_view"
+        android:name="com.example.racktrack.Contact.ContactsFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout="@layout/fragment_contact_list">
-
-    </androidx.fragment.app.FragmentContainerView>
+        android:layout_height="300dp"
+        android:layout_weight="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_contact_list" />
 
     <Button
         android:id="@+id/exerciseButton"

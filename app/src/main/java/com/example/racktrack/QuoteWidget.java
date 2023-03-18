@@ -13,7 +13,7 @@ public class QuoteWidget extends AppWidgetProvider {
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
 
-        CharSequence widgetText = "BODE IST GEIL";
+        CharSequence widgetText = "Dit is een widget";
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.quote_widget);
         views.setTextViewText(R.id.appwidget_text, widgetText);

@@ -12,6 +12,12 @@
         android:theme="@style/Theme.RackTrack"
         tools:targetApi="33">
         <activity
+            android:name=".NewQuoteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RoomDatabase.QuoteList"
+            android:exported="false" />
+        <activity
             android:name=".QuoteEdit"
             android:exported="false" />
         <activity

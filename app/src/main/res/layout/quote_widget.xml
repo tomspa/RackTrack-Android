@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Widget.RackTrack.AppWidget.Container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:theme="@style/Theme.RackTrack.AppWidgetContainer">
+
+    <LinearLayout
+        android:layout_width="386dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quote:" />
+
+        <TextView
+            android:id="@+id/appwidget_text"
+            style="@style/Widget.RackTrack.AppWidget.InnerView"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@color/background"
+            android:contentDescription="@string/appwidget_text"
+            android:lineSpacingExtra="6sp"
+            android:text="@string/appwidget_text"
+            android:textAlignment="textStart"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</RelativeLayout>

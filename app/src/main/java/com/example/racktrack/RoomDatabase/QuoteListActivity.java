@@ -10,10 +10,12 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.racktrack.Listener.OnItemClickListener;
 import com.example.racktrack.NewQuoteActivity;
+import com.example.racktrack.Quote.QuoteEditActivity;
 import com.example.racktrack.R;
 
-public class QuoteList extends AppCompatActivity {
+public class QuoteListActivity extends AppCompatActivity implements OnItemClickListener {
     private QuoteViewModel quoteViewModel;
     public static final int NEW_QUOTE_ACTIVITY_REQUEST_CODE = 1;
 
@@ -23,7 +25,7 @@ public class QuoteList extends AppCompatActivity {
         setContentView(R.layout.activity_quote_list);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        final QuoteListAdapter adapter = new QuoteListAdapter(new QuoteListAdapter.QuoteDiff());
+        final QuoteListAdapter adapter = new QuoteListAdapter(new QuoteListAdapter.QuoteDiff(), this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -35,7 +37,7 @@ public class QuoteList extends AppCompatActivity {
 
         Button addButton = findViewById(R.id.addQuoteButton);
         addButton.setOnClickListener(view -> {
-            Intent intent = new Intent(QuoteList.this, NewQuoteActivity.class);
+            Intent intent = new Intent(QuoteListActivity.this, NewQuoteActivity.class);
             startActivityForResult(intent, NEW_QUOTE_ACTIVITY_REQUEST_CODE);
         });
     }
@@ -49,5 +51,12 @@ public class QuoteList extends AppCompatActivity {
         } else {
             Toast.makeText(getApplicationContext(),"Not saved",Toast.LENGTH_LONG).show();
         }
+    }
+
+    @Override
+    public void onItemClick(int id) {
+        Intent intent = new Intent(this, QuoteEditActivity.class);
+        intent.putExtra("quote_id", id);
+        startActivity(intent);
     }
 }

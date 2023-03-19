@@ -1,15 +1,20 @@
 package com.example.racktrack.RoomDatabase;
 
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
-public class QuoteListAdapter extends ListAdapter<Quote, QuoteViewHolder> {
+import com.example.racktrack.Listener.OnItemClickListener;
 
-    public QuoteListAdapter(@NonNull DiffUtil.ItemCallback<Quote> diffCallBack) {
+public class QuoteListAdapter extends ListAdapter<Quote, QuoteViewHolder> {
+    private OnItemClickListener listener;
+
+    public QuoteListAdapter(@NonNull DiffUtil.ItemCallback<Quote> diffCallBack, OnItemClickListener listener) {
         super(diffCallBack);
+        this.listener = listener;
     }
 
     @Override
@@ -21,6 +26,10 @@ public class QuoteListAdapter extends ListAdapter<Quote, QuoteViewHolder> {
     public void onBindViewHolder(@NonNull QuoteViewHolder holder, int position) {
         Quote current = getItem(position);
         holder.bind(current.getQuote());
+
+        holder.itemView.setOnClickListener(view -> {
+            listener.onItemClick(current.getId());
+        });
     }
 
     static class QuoteDiff extends DiffUtil.ItemCallback<Quote> {
@@ -35,4 +44,6 @@ public class QuoteListAdapter extends ListAdapter<Quote, QuoteViewHolder> {
             return oldItem.getQuote().equals(newItem.getQuote());
         }
     }
+
+
 }

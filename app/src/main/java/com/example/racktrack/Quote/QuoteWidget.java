@@ -1,13 +1,12 @@
-package com.example.racktrack;
+package com.example.racktrack.Quote;
 
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.widget.RemoteViews;
 
-/**
- * Implementation of App Widget functionality.
- */
+import com.example.racktrack.R;
+
 public class QuoteWidget extends AppWidgetProvider {
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,

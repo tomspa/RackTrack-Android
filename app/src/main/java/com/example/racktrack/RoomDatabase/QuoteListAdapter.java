@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
 import com.example.racktrack.Listener.OnItemClickListener;
+import com.example.racktrack.R;
 
 public class QuoteListAdapter extends ListAdapter<Quote, QuoteViewHolder> {
     private OnItemClickListener listener;
@@ -27,7 +28,7 @@ public class QuoteListAdapter extends ListAdapter<Quote, QuoteViewHolder> {
         Quote current = getItem(position);
         holder.bind(current.getQuote());
 
-        holder.itemView.setOnClickListener(view -> {
+        holder.itemView.findViewById(R.id.edit_quoteItem_button).setOnClickListener(view -> {
             listener.onItemClick(current.getId());
         });
     }
@@ -44,6 +45,4 @@ public class QuoteListAdapter extends ListAdapter<Quote, QuoteViewHolder> {
             return oldItem.getQuote().equals(newItem.getQuote());
         }
     }
-
-
 }

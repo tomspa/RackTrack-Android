@@ -28,6 +28,7 @@ public abstract class QuoteRoomDatabase extends RoomDatabase {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                                     QuoteRoomDatabase.class, "quote_database")
                             .addCallback(roomDatabaseCallback)
+                            .allowMainThreadQueries()
                             .build();
                 }
             }

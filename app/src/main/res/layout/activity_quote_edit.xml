@@ -21,8 +21,8 @@
             android:id="@+id/quoteEditField"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:inputType="textNoSuggestions"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -22,4 +22,10 @@ public interface QuoteDAO {
 
     @Query("SELECT * FROM quote_table WHERE id=:id")
     LiveData<Quote> getQuoteById(int id);
+
+    @Query("UPDATE quote_table SET quote=:quote WHERE id=:id")
+    void updateQuoteById(int id, String quote);
+
+    @Query("DELETE FROM quote_table WHERE id=:id")
+    void deleteQuoteById(int id);
 }

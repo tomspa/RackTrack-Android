@@ -13,7 +13,7 @@
         android:text="TextView" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/edit_quoteItem_button"
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_weight="1"

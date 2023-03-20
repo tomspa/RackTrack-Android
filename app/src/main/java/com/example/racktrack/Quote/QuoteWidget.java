@@ -3,7 +3,10 @@ package com.example.racktrack.Quote;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.widget.RemoteViews;
+
+import androidx.preference.PreferenceManager;
 
 import com.example.racktrack.R;
 
@@ -12,7 +15,8 @@ public class QuoteWidget extends AppWidgetProvider {
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
 
-        CharSequence widgetText = "Dit is een widget";
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
+        CharSequence widgetText = sharedPreferences.getString("favorite_quote", "DEFAULT");
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.quote_widget);
         views.setTextViewText(R.id.appwidget_text, widgetText);

@@ -21,9 +21,8 @@ import java.util.Arrays;
 
 public class ContactsFragment extends Fragment {
     private FragmentActivity mainActivity;
-    private ListView contactsList;
     private Context context;
-    private ArrayList<Contact> contacts = new ArrayList<Contact>(
+    private final ArrayList<Contact> contacts = new ArrayList<>(
         Arrays.asList(
             new Contact("Kevin", "van Spreuwel", "0612344567"),
             new Contact("Bode", "Wijnands", "0612344567"),
@@ -41,17 +40,15 @@ public class ContactsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View contactsView = inflater.inflate(R.layout.fragment_contact_list, container, false);
-        this.contactsList = contactsView.findViewById(R.id.contact_list);
+        ListView contactsList = contactsView.findViewById(R.id.contact_list);
 
         final ArrayAdapter<Contact> arrayAdapter =
-                new ArrayAdapter<Contact>(mainActivity, android.R.layout.simple_list_item_1, this.contacts);
+                new ArrayAdapter<>(mainActivity, android.R.layout.simple_list_item_1, this.contacts);
 
-        this.contactsList.setAdapter(arrayAdapter);
+        contactsList.setAdapter(arrayAdapter);
 
         //Add listeners
-        this.contactsList.setOnItemClickListener((adapterView, view, pos, id) -> {
-            this.openCallWindow(arrayAdapter.getItem(pos));
-        });
+        contactsList.setOnItemClickListener((adapterView, view, pos, id) -> this.openCallWindow(arrayAdapter.getItem(pos)));
 
         return contactsView;
     }

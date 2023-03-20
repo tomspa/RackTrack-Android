@@ -9,14 +9,16 @@
         android:id="@+id/quoteTextView"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_weight="1"
         android:text="TextView" />
 
     <Button
         android:id="@+id/edit_quoteItem_button"
         android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:layout_weight="1"
+        android:layout_height="50dp"
+        android:layout_weight="0"
+        android:backgroundTint="@color/main"
         android:text="Edit"
-        android:textSize="10sp" />
+        android:textSize="11sp" />
 </LinearLayout>

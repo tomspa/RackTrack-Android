@@ -8,8 +8,9 @@
     <EditText
         android:id="@+id/edit_quote"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="61dp"
         android:layout_margin="6dp"
+        android:autofillHints="Sample text"
         android:fontFamily="sans-serif-light"
         android:hint="Fill in your quote"
         android:inputType="textAutoComplete"
@@ -21,6 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
+        android:backgroundTint="@color/main"
         android:text="Save" />
 
 </LinearLayout>

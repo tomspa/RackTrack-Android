@@ -10,7 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.racktrack.RoomDatabase.QuoteList;
+import com.example.racktrack.RoomDatabase.QuoteListActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         this.quoteButton = findViewById(R.id.quotesListButton);
 
         this.quoteButton.setOnClickListener(view -> {
-            Intent intent = new Intent(this, QuoteList.class);
+            Intent intent = new Intent(this, QuoteListActivity.class);
             startActivity(intent);
         });
 

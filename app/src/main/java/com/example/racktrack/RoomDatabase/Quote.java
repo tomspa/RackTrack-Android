@@ -20,6 +20,7 @@ public class Quote {
         this.quote = quote;
     }
 
+    @NonNull
     public String getQuote() {
         return this.quote;
     }

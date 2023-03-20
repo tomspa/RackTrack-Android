@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".QuoteEdit">
+    tools:context=".Quote.QuoteEditActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/quoteText"
@@ -21,8 +21,8 @@
             android:id="@+id/quoteEditField"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:inputType="textNoSuggestions"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 

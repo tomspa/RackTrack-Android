@@ -21,13 +21,14 @@ public abstract class QuoteRoomDatabase extends RoomDatabase {
     static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-    static QuoteRoomDatabase getDatabase(final Context context) {
+    public static QuoteRoomDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
             synchronized (QuoteRoomDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                                     QuoteRoomDatabase.class, "quote_database")
                             .addCallback(roomDatabaseCallback)
+                            .allowMainThreadQueries()
                             .build();
                 }
             }

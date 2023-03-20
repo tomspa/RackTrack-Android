@@ -17,7 +17,7 @@
             android:label="@string/title_activity_settings"/>
 
         <receiver
-            android:name=".QuoteWidget"
+            android:name=".Quote.QuoteWidget"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -32,10 +32,10 @@
             android:name=".NewQuoteActivity"
             android:exported="false" />
         <activity
-            android:name=".RoomDatabase.QuoteList"
+            android:name=".RoomDatabase.QuoteListActivity"
             android:exported="false" />
         <activity
-            android:name=".QuoteEdit"
+            android:name=".Quote.QuoteEditActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

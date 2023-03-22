@@ -12,7 +12,7 @@
         android:layout_margin="6dp"
         android:autofillHints="Sample text"
         android:fontFamily="sans-serif-light"
-        android:hint="Fill in your quote"
+        android:hint="@string/fill_in_your_quote"
         android:inputType="textAutoComplete"
         android:minHeight="20dp"
         android:textSize="18sp" />
@@ -23,6 +23,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:backgroundTint="@color/main"
-        android:text="Save" />
+        android:text="@string/save_quote_text" />
 
 </LinearLayout>

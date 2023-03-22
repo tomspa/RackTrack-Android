@@ -11,7 +11,7 @@
         android:id="@+id/quoteText"
         android:layout_width="415dp"
         android:layout_height="200dp"
-        android:hint="Type a quote to keep you inspired!"
+        android:hint="@string/type_a_quote_prompt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
         android:layout_height="50dp"
         android:layout_marginBottom="24dp"
         android:backgroundTint="@color/main"
-        android:text="Save"
+        android:text="@string/save_quote_text"
         app:layout_constraintBottom_toTopOf="@+id/quoteText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -1,6 +1,5 @@
-package com.example.racktrack.RoomDatabase;
+package com.example.racktrack.Quote;
 
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -8,7 +7,9 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
 import com.example.racktrack.Listener.OnItemClickListener;
+import com.example.racktrack.Quote.QuoteViewHolder;
 import com.example.racktrack.R;
+import com.example.racktrack.RoomDatabase.Quote;
 
 public class QuoteListAdapter extends ListAdapter<Quote, QuoteViewHolder> {
     private OnItemClickListener listener;

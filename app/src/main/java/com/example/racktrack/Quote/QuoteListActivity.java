@@ -1,10 +1,15 @@
 package com.example.racktrack.Quote;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -33,22 +38,28 @@ public class QuoteListActivity extends AppCompatActivity implements OnItemClickL
 
         this.quoteViewModel.getAllQuotes().observe(this, adapter::submitList);
 
+        ActivityResultLauncher<Intent> activityResultLauncher = this.getActivityResultLauncher();
+
         Button addButton = findViewById(R.id.addQuoteButton);
         addButton.setOnClickListener(view -> {
             Intent intent = new Intent(QuoteListActivity.this, NewQuoteActivity.class);
-            startActivityForResult(intent, NEW_QUOTE_ACTIVITY_REQUEST_CODE);
+            activityResultLauncher.launch(intent);
         });
     }
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == NEW_QUOTE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Quote word = new Quote(data.getStringExtra(NewQuoteActivity.EXTRA_REPLY));
-            quoteViewModel.insert(word);
-        } else {
-            Toast.makeText(getApplicationContext(),"Not saved",Toast.LENGTH_LONG).show();
-        }
+    //Replacement for deprecated 'startActivityForResult' function
+    private ActivityResultLauncher<Intent> getActivityResultLauncher() {
+        return registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == RESULT_OK) {
+                        Quote word = new Quote(result.getData().getStringExtra(NewQuoteActivity.EXTRA_REPLY));
+                        quoteViewModel.insert(word);
+                    } else {
+                        Toast.makeText(getApplicationContext(),"Not saved",Toast.LENGTH_LONG).show();
+                    }
+                }
+        );
     }
 
     @Override

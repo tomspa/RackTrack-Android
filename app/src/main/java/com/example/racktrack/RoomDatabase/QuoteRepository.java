@@ -12,17 +12,17 @@ public class QuoteRepository {
     private LiveData<List<Quote>> allQuotes;
 
 
-    QuoteRepository(Application application) {
+    public QuoteRepository(Application application) {
         QuoteRoomDatabase db = QuoteRoomDatabase.getDatabase(application);
         quoteDAO = db.quoteDAO();
         allQuotes = quoteDAO.getAllQuotes();
     }
 
-    LiveData<List<Quote>> getAllQuotes() {
+    public LiveData<List<Quote>> getAllQuotes() {
         return allQuotes;
     }
 
-    void insert(Quote quote) {
+    public void insert(Quote quote) {
         QuoteRoomDatabase.databaseWriteExecutor.execute(() -> {
             quoteDAO.insert(quote);
         });

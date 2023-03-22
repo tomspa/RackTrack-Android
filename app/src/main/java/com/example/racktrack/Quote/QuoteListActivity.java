@@ -1,4 +1,4 @@
-package com.example.racktrack.RoomDatabase;
+package com.example.racktrack.Quote;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -12,8 +12,8 @@ import android.widget.Toast;
 
 import com.example.racktrack.Listener.OnItemClickListener;
 import com.example.racktrack.NewQuoteActivity;
-import com.example.racktrack.Quote.QuoteEditActivity;
 import com.example.racktrack.R;
+import com.example.racktrack.RoomDatabase.Quote;
 
 public class QuoteListActivity extends AppCompatActivity implements OnItemClickListener {
     private QuoteViewModel quoteViewModel;
@@ -31,9 +31,7 @@ public class QuoteListActivity extends AppCompatActivity implements OnItemClickL
 
         this.quoteViewModel = new ViewModelProvider(this).get(QuoteViewModel.class);
 
-        this.quoteViewModel.getAllQuotes().observe(this, quotes -> {
-            adapter.submitList(quotes);
-        });
+        this.quoteViewModel.getAllQuotes().observe(this, adapter::submitList);
 
         Button addButton = findViewById(R.id.addQuoteButton);
         addButton.setOnClickListener(view -> {

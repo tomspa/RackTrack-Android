@@ -1,7 +1,6 @@
 package com.example.racktrack;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.PreferenceManager;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,17 +9,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.racktrack.RoomDatabase.QuoteListActivity;
+import com.example.racktrack.Exercise.ExerciseListActivity;
+import com.example.racktrack.Exercise.ExerciseListAdapter;
+import com.example.racktrack.Quote.QuoteListActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private View quoteButton;
-
-    private static final String KEY_QUOTE = "favorite_quote";
     private SharedPreferences sharedPreferences;
     private SharedPreferences.OnSharedPreferenceChangeListener sharedPrefListener;
-
-    private String favoriteQuote;
 
 
     @Override
@@ -28,18 +24,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.quoteButton = findViewById(R.id.quotesListButton);
-
-        this.quoteButton.setOnClickListener(view -> {
+        View quoteButton = findViewById(R.id.quotesListButton);
+        quoteButton.setOnClickListener(view -> {
             Intent intent = new Intent(this, QuoteListActivity.class);
             startActivity(intent);
         });
 
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        sharedPrefListener = (sharedPreferences, key) -> favoriteQuote = sharedPreferences.getString(KEY_QUOTE, "DEFAULT");
-        sharedPreferences.registerOnSharedPreferenceChangeListener(sharedPrefListener);
-
-        favoriteQuote = sharedPreferences.getString(KEY_QUOTE, "DEFAULT");
+        View exerciseButton = findViewById(R.id.exerciseButton);
+        exerciseButton.setOnClickListener(view -> {
+            Intent intent = new Intent(this, ExerciseListActivity.class);
+            startActivity(intent);
+        });
     }
 
     @Override

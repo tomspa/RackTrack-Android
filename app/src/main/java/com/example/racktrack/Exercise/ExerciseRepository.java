@@ -23,6 +23,7 @@ public class ExerciseRepository {
 
     private RequestQueue queue;
     private Context context;
+    private int offset;
 
     public ExerciseRepository(Context context) {
         this.queue = Volley.newRequestQueue(context);
@@ -30,9 +31,8 @@ public class ExerciseRepository {
     }
 
     private URL createExerciseUrl() {
-
         try {
-            return new URL("https://wger.de/api/v2/exercise/?language=2&limit=100&offset=0");
+            return new URL("https://wger.de/api/v2/exercise/?language=2&limit=150&offset=" + offset);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -51,6 +51,7 @@ public class ExerciseRepository {
                         for (int i = 0; i < result.length(); i++) {
                             JSONObject excercise = result.getJSONObject(i);
                             String description = excercise.getString("description").replaceAll("\\<[^>]*>","");
+
                             if (description.length() > 100) {
                                 description = description.substring(0, 100);
                             }

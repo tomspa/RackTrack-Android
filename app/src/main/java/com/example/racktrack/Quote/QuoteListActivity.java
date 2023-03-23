@@ -1,7 +1,5 @@
 package com.example.racktrack.Quote;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,13 +7,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.racktrack.Listener.OnItemClickListener;
 import com.example.racktrack.NewQuoteActivity;
 import com.example.racktrack.R;
 import com.example.racktrack.RoomDatabase.Quote;

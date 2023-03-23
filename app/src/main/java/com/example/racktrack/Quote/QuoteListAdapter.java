@@ -6,19 +6,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
-import com.example.racktrack.Listener.OnItemClickListener;
-import com.example.racktrack.Quote.QuoteViewHolder;
 import com.example.racktrack.R;
 import com.example.racktrack.RoomDatabase.Quote;
 
 public class QuoteListAdapter extends ListAdapter<Quote, QuoteViewHolder> {
-    private OnItemClickListener listener;
+    private final OnItemClickListener listener;
 
     public QuoteListAdapter(@NonNull DiffUtil.ItemCallback<Quote> diffCallBack, OnItemClickListener listener) {
         super(diffCallBack);
         this.listener = listener;
     }
 
+    @NonNull
     @Override
     public QuoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return QuoteViewHolder.create(parent);

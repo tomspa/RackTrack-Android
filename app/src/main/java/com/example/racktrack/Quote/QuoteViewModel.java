@@ -13,8 +13,8 @@ import java.util.List;
 
 public class QuoteViewModel extends AndroidViewModel {
 
-    private QuoteRepository quoteRepository;
-    private LiveData<List<Quote>> allQuotes;
+    private final QuoteRepository quoteRepository;
+    private final LiveData<List<Quote>> allQuotes;
 
     public QuoteViewModel(@NonNull Application application) {
         super(application);

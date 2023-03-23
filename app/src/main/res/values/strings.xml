@@ -40,4 +40,6 @@
     <string name="camera_button_text">Click to make gym picture</string>
     <string name="gym_picture_content_description">gym picture</string>
     <string name="allow_camera_access_string">Change app settings to allow access to the camera</string>
+    <string name="music_player_title">Music player</string>
+    <string name="settings_title">Settings</string>
 </resources>

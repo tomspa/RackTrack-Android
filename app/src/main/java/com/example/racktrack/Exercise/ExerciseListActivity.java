@@ -1,7 +1,6 @@
 package com.example.racktrack.Exercise;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,7 +13,6 @@ import android.widget.ProgressBar;
 import com.example.racktrack.R;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ExerciseListActivity extends AppCompatActivity implements ExerciseListener {
@@ -34,7 +32,7 @@ public class ExerciseListActivity extends AppCompatActivity implements ExerciseL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise_list);
         this.exerciseRepository = new ExerciseRepository(this);
-        exerciseRepository.getExercises(this);
+        exerciseRepository.getExercises(this, exerciseRepository.createExerciseUrl());
 
         this.progressBar = findViewById(R.id.progressBar);
         this.swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
@@ -47,7 +45,7 @@ public class ExerciseListActivity extends AppCompatActivity implements ExerciseL
 
         swipeRefreshLayout.setOnRefreshListener(() -> {
             swipeRefreshLayout.setRefreshing(false);
-            exerciseRepository.getExercises(this);
+            exerciseRepository.getExercises(this, exerciseRepository.createRefreshUrl(exercises.getValue().size() + 1));
         });
     }
 

@@ -68,9 +68,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void requestPermission() {
-        if(ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED)
-        {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             requestPermissionLauncher.launch(Manifest.permission.CAMERA);
         } else if (shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)) {
             Toast.makeText(this, R.string.allow_camera_access_string, Toast.LENGTH_LONG).show();
@@ -85,26 +83,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private final ActivityResultLauncher<String> requestPermissionLauncher =
-            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
-                if (isGranted) {
-                    openCamera();
-                } else {
-                    Toast.makeText(this, R.string.allow_camera_access_string, Toast.LENGTH_LONG).show();
-                }
-            });
+        registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+            if (isGranted) {
+                openCamera();
+            } else {
+                Toast.makeText(this, R.string.allow_camera_access_string, Toast.LENGTH_LONG).show();
+            }
+        });
+
     private ActivityResultLauncher<Intent> getActivityResultLauncher() {
         return registerForActivityResult(
-                new ActivityResultContracts.StartActivityForResult(),
-                result -> {
-                    if (result.getResultCode() == RESULT_OK) {
-                        Intent data = result.getData();
-                        assert data != null;
-                        Bitmap photo = (Bitmap) data.getExtras().get("data");
-                        gymImageview.setImageBitmap(photo);
-                    } else {
-                        Toast.makeText(getApplicationContext(), R.string.not_saved_message,Toast.LENGTH_LONG).show();
-                    }
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == RESULT_OK) {
+                    Intent data = result.getData();
+                    assert data != null;
+                    Bitmap photo = (Bitmap) data.getExtras().get("data");
+                    gymImageview.setImageBitmap(photo);
+                } else {
+                    Toast.makeText(getApplicationContext(), R.string.not_saved_message,Toast.LENGTH_LONG).show();
                 }
+            }
         );
     }
 }

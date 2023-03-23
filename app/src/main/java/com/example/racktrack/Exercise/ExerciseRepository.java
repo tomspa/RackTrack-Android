@@ -76,6 +76,7 @@ public class ExerciseRepository {
                         Toast.makeText(context,"Error parsing JSON",Toast.LENGTH_LONG).show();
                     }
                 }, error -> Toast.makeText(context,"Error getting response",Toast.LENGTH_LONG).show()
+                }, error -> Toast.makeText(context,"Overloaded the API, try again later",Toast.LENGTH_LONG).show()
         );
 
         queue.add(request);

@@ -22,15 +22,27 @@
             android:background="@color/background"
             tools:listitem="@layout/exercise_list_item"></androidx.recyclerview.widget.RecyclerView>
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="@style/Widget.AppCompat.ProgressBar"
-            android:layout_width="86dp"
-            android:layout_height="80dp"
-            android:background="@color/background"
-            android:indeterminate="true"
-            android:indeterminateTint="@color/main"
-            android:indeterminateTintMode="src_atop" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/progressbarContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#6DB3A6A6">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="86dp"
+                android:layout_height="80dp"
+                android:background="@color/background"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/main"
+                android:indeterminateTintMode="src_atop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </FrameLayout>
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -8,7 +8,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ProgressBar;
 
 import com.example.racktrack.R;
 
@@ -20,7 +19,7 @@ public class ExerciseListActivity extends AppCompatActivity implements ExerciseL
     MutableLiveData<List<Exercise>> exercises = new MutableLiveData<>();
     ExerciseListAdapter exerciseListAdapter;
     ExerciseRepository exerciseRepository;
-    ProgressBar progressBar;
+    View progressBarContainer;
     SwipeRefreshLayout swipeRefreshLayout;
 
     public ExerciseListActivity() {
@@ -34,7 +33,7 @@ public class ExerciseListActivity extends AppCompatActivity implements ExerciseL
         this.exerciseRepository = new ExerciseRepository(this);
         exerciseRepository.getExercises(this, exerciseRepository.createExerciseUrl());
 
-        this.progressBar = findViewById(R.id.progressBar);
+        this.progressBarContainer = findViewById(R.id.progressbarContainer);
         this.swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
 
         RecyclerView recyclerView = findViewById(R.id.exercise_recycler_view);
@@ -44,6 +43,7 @@ public class ExerciseListActivity extends AppCompatActivity implements ExerciseL
         this.exercises.observe(this, exerciseListAdapter::submitList);
 
         swipeRefreshLayout.setOnRefreshListener(() -> {
+            this.progressBarContainer.setVisibility(View.VISIBLE);
             swipeRefreshLayout.setRefreshing(false);
             exerciseRepository.getExercises(this, exerciseRepository.createRefreshUrl(exercises.getValue().size() + 1));
         });
@@ -51,7 +51,7 @@ public class ExerciseListActivity extends AppCompatActivity implements ExerciseL
 
     @Override
     public void success(ArrayList<Exercise> exercises) {
-        this.progressBar.setVisibility(View.GONE);
+        this.progressBarContainer.setVisibility(View.GONE);
         this.exercises.setValue(exercises);
     }
 }

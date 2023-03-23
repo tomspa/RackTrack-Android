@@ -1,7 +1,7 @@
 package com.example.racktrack.Exercise;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public interface ExerciseListener {
-    void success(List<Exercise> exercises);
+    void success(ArrayList<Exercise> exercises);
 }

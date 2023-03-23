@@ -20,6 +20,10 @@ public class Quote {
         this.quote = quote;
     }
 
+    public void setQuote(@NonNull String quote) {
+        this.quote = quote;
+    }
+
     @NonNull
     public String getQuote() {
         return this.quote;

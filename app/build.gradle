@@ -37,7 +37,6 @@ android {
 
 dependencies {
     implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
-    // Dependencies for working with Architecture components
     implementation 'com.android.volley:volley:1.2.1'
 
     // Room components

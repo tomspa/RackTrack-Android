@@ -1,6 +1,8 @@
 package com.example.racktrack.Exercise;
 
 import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -20,17 +22,17 @@ import java.util.Random;
 public class ExerciseRepository {
 
     private RequestQueue queue;
+    private Context context;
 
     public ExerciseRepository(Context context) {
         this.queue = Volley.newRequestQueue(context);
+        this.context = context;
     }
 
     private URL createExerciseUrl() {
-        Random rand = new Random();
-        int randomInt = rand.nextInt(1001);
 
         try {
-            return new URL("https://wger.de/api/v2/exercise/?language=2&limit=150&offset=" + randomInt);
+            return new URL("https://wger.de/api/v2/exercise/?language=2&limit=100&offset=0");
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -48,20 +50,23 @@ public class ExerciseRepository {
 
                         for (int i = 0; i < result.length(); i++) {
                             JSONObject excercise = result.getJSONObject(i);
+                            String description = excercise.getString("description").replaceAll("\\<[^>]*>","");
+                            if (description.length() > 100) {
+                                description = description.substring(0, 100);
+                            }
                             exercises.add(
-                                new Exercise(
-                                    excercise.getString("name"),
-                                    excercise.getString("description").replaceAll("\\<[^>]*>","").substring(0, 100)
-                                )
+                                new Exercise(excercise.getString("name"), description)
                             );
                         }
 
                         listener.success(exercises);
                     }
                     catch (JSONException e) {
-                        // listener error
+                        Toast.makeText(context,"Error parsing JSON",Toast.LENGTH_LONG).show();
                     }
-                },null
+                }, error -> {
+                    Toast.makeText(context,"Error getting response",Toast.LENGTH_LONG).show();
+                }
         );
 
         queue.add(request);

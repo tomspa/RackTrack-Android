@@ -51,7 +51,6 @@ public class ExerciseListActivity extends AppCompatActivity implements ExerciseL
 
     @Override
     public void success(ArrayList<Exercise> exercises) {
-        System.out.println("success");
         this.exercises.setValue(exercises);
     }
 }

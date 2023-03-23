@@ -55,11 +55,11 @@ public class ContactsFragment extends Fragment {
 
     private void openCallWindow(Contact contact) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this.context)
-            .setTitle("Call")
-            .setMessage("Would you like to call " + contact.getFirstName() + " " + contact.getLastName() + "?")
-            .setNegativeButton("No", ((dialogInterface, i) -> dialogInterface.cancel()))
-            .setPositiveButton("Yes", ((dialogInterface, i) -> {
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + contact.getPhoneNumber()));
+            .setTitle(R.string.call)
+            .setMessage(getString(R.string.request_to_call) + contact.getFirstName() + " " + contact.getLastName() + "?")
+            .setNegativeButton(R.string.decline_interface, ((dialogInterface, i) -> dialogInterface.cancel()))
+            .setPositiveButton(R.string.accept_interface, ((dialogInterface, i) -> {
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(getString(R.string.uri_parse_prefix) + contact.getPhoneNumber()));
                 startActivity(intent);
             }));
 

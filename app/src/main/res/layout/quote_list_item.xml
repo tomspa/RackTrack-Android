@@ -7,18 +7,18 @@
 
     <TextView
         android:id="@+id/quoteTextView"
-        android:layout_width="300dp"
+        android:layout_width="@dimen/quote_list_item_width"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="@dimen/quote_list_item_margin_end"
         android:layout_weight="1"
-        android:text="TextView" />
+        android:text="@string/quote_list_item_textview_default" />
 
     <Button
         android:id="@+id/edit_quoteItem_button"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/quote_list_item_edit_button_width"
+        android:layout_height="@dimen/quote_list_item_edit_button_height"
         android:layout_weight="0"
         android:backgroundTint="@color/main"
-        android:text="Edit"
-        android:textSize="11sp" />
+        android:text="@string/quote_list_item_edit_button_text"
+        android:textSize="@dimen/quote_list_item_edit_button_text_size" />
 </LinearLayout>

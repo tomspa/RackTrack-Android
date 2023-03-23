@@ -21,4 +21,23 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="call">Call</string>
+    <string name="request_to_call">\"Would you like to call \"</string>
+    <string name="decline_interface">No</string>
+    <string name="accept_interface">Yes</string>
+    <string name="uri_parse_prefix">tel:</string>
+    <string name="not_saved_message">Not saved</string>
+    <string name="fill_in_your_quote">Fill in your quote</string>
+    <string name="save_quote_text">Save</string>
+    <string name="quote_header_prefix">Quote:</string>
+    <string name="quote_list_item_textview_default">TextView</string>
+    <string name="quote_list_item_edit_button_text">Edit</string>
+    <string name="call_gym_bros_message">Call one of your gym bros</string>
+    <string name="add_new_quote_button">Add quote</string>
+    <string name="type_a_quote_prompt">Type a quote to keep you inspired!</string>
+    <string name="quotes_text">Quotes</string>
+    <string name="exercises_text">Exercises</string>
+    <string name="camera_button_text">Click to make gym picture</string>
+    <string name="gym_picture_content_description">gym picture</string>
+    <string name="allow_camera_access_string">Change app settings to allow access to the camera</string>
 </resources>

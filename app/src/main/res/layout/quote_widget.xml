@@ -6,7 +6,7 @@
     android:theme="@style/Theme.RackTrack.AppWidgetContainer">
 
     <LinearLayout
-        android:layout_width="386dp"
+        android:layout_width="@dimen/quote_widget_layout_width"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
@@ -14,19 +14,19 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Quote:" />
+            android:text="@string/quote_header_prefix" />
 
         <TextView
             android:id="@+id/appwidget_text"
             style="@style/Widget.RackTrack.AppWidget.InnerView"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="@dimen/quote_widget_height"
             android:background="@color/background"
             android:contentDescription="@string/appwidget_text"
-            android:lineSpacingExtra="6sp"
+            android:lineSpacingExtra="@dimen/quote_widget_line_spacing"
             android:text="@string/appwidget_text"
             android:textAlignment="textStart"
-            android:textSize="12sp"
+            android:textSize="@dimen/quote_widget_text_size"
             android:textStyle="bold" />
     </LinearLayout>
 </RelativeLayout>

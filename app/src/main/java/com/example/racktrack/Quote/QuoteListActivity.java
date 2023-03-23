@@ -18,7 +18,6 @@ import com.example.racktrack.RoomDatabase.Quote;
 
 public class QuoteListActivity extends AppCompatActivity implements OnItemClickListener {
     private QuoteViewModel quoteViewModel;
-    public static final int NEW_QUOTE_ACTIVITY_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +48,11 @@ public class QuoteListActivity extends AppCompatActivity implements OnItemClickL
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
                     if (result.getResultCode() == RESULT_OK) {
+                        assert result.getData() != null;
                         Quote word = new Quote(result.getData().getStringExtra(NewQuoteActivity.EXTRA_REPLY));
                         quoteViewModel.insert(word);
                     } else {
-                        Toast.makeText(getApplicationContext(),"Not saved",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), R.string.not_saved_message,Toast.LENGTH_LONG).show();
                     }
                 }
         );

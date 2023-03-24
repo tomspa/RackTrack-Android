@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/background"
-            tools:listitem="@layout/exercise_list_item"></androidx.recyclerview.widget.RecyclerView>
+            tools:listitem="@layout/exercise_list_item" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/progressbarContainer"

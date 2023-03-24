@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,7 +15,16 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.RackTrack"
-        tools:targetApi="33">
+        tools:targetApi="33" >
+        <service
+            android:name=".Music.MusicService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
+
+        <activity
+            android:name=".Music.MusicActivity"
+            android:exported="false" />
         <activity
             android:name=".Exercise.ExerciseListActivity"
             android:exported="false" />
@@ -26,7 +35,7 @@
 
         <receiver
             android:name=".Quote.QuoteWidget"
-            android:exported="false">
+            android:exported="false" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -47,7 +56,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

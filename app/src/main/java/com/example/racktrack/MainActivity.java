@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.racktrack.Exercise.ExerciseListActivity;
 import com.example.racktrack.Preferences.SettingsActivity;
+import com.example.racktrack.Music.MusicActivity;
 import com.example.racktrack.Quote.QuoteListActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -50,6 +51,12 @@ public class MainActivity extends AppCompatActivity {
 
         activityResultLauncher = this.getActivityResultLauncher();
         cameraButton.setOnClickListener(view -> requestPermission());
+
+        Button musicButton = findViewById(R.id.main_music_button);
+        musicButton.setOnClickListener(view -> {
+            Intent intent = new Intent(this, MusicActivity.class);
+            startActivity(intent);
+        });
     }
 
     @Override

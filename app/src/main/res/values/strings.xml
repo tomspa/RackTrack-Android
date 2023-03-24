@@ -41,4 +41,8 @@
     <string name="gym_picture_content_description">gym picture</string>
     <string name="allow_camera_access_string">Change app settings to allow access to the camera</string>
     <string name="settings_title">Settings</string>
+    <string name="media_player_text">Media Player</string>
+    <string name="media_pause">media_pause</string>
+    <string name="media_play">media_play</string>
+    <string name="main_music_button_text">Music</string>
 </resources>

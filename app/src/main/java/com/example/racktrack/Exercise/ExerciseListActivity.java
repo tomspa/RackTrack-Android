@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkCapabilities;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -44,10 +47,24 @@ public class ExerciseListActivity extends AppCompatActivity implements ExerciseL
         this.exercises.observe(this, exerciseListAdapter::submitList);
 
         swipeRefreshLayout.setOnRefreshListener(() -> {
-            this.progressBarContainer.setVisibility(View.VISIBLE);
             swipeRefreshLayout.setRefreshing(false);
-            exerciseRepository.getExercises(this, exerciseRepository.createRefreshUrl(exercises.getValue().size() + 1));
+
+            if (isNetworkAvailable()) {
+                this.progressBarContainer.setVisibility(View.VISIBLE);
+                exerciseRepository.getExercises(this, exerciseRepository.createRefreshUrl(exercises.getValue().size() + 1));
+            }
+            else { this.failed("No Internet"); }
         });
+    }
+
+    public boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkCapabilities capabilities = connectivityManager.getNetworkCapabilities(connectivityManager.getActiveNetwork());
+
+        return capabilities != null &&
+                (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
+                        capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
+                        capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET));
     }
 
     @Override

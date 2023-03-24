@@ -33,7 +33,7 @@ public class ExerciseRepository {
         }
     }
 
-    // creates a new url where the offset is 1 less, to show the draw refresh functional
+    // Creates a new url where the offset is 1 less, to show the draw refresh functional
     public URL createRefreshUrl(int limit) {
         try {
             if (offset >= 1) {
@@ -47,32 +47,33 @@ public class ExerciseRepository {
 
     public void getExercises(ExerciseListener listener, URL url) {
         JsonObjectRequest request = new JsonObjectRequest(
-                Request.Method.GET,
-                url.toString(),
-                null,
-                response -> {
-                    try {
-                        ArrayList<Exercise> exercises = new ArrayList<>();
-                        JSONArray result = response.getJSONArray("results");
+            Request.Method.GET,
+            url.toString(),
+            null,
+            response -> {
+                try {
+                    ArrayList<Exercise> exercises = new ArrayList<>();
+                    JSONArray result = response.getJSONArray("results");
 
-                        for (int i = 0; i < result.length(); i++) {
-                            JSONObject excercise = result.getJSONObject(i);
-                            String description = excercise.getString("description").replaceAll("<[^>]*>","");
+                    for (int i = 0; i < result.length(); i++) {
+                        JSONObject excercise = result.getJSONObject(i);
+                        // Remove all html tags
+                        String description = excercise.getString("description").replaceAll("<[^>]*>","");
 
-                            if (description.length() > 100) {
-                                description = description.substring(0, 100);
-                            }
-                            exercises.add(
-                                new Exercise(excercise.getString("name"), description)
-                            );
+                        if (description.length() > 100) {
+                            description = description.substring(0, 100);
                         }
+                        exercises.add(
+                            new Exercise(excercise.getString("name"), description)
+                        );
+                    }
 
-                        listener.success(exercises);
-                    }
-                    catch (JSONException e) {
-                        listener.failed("JSON error");
-                    }
-                }, error -> listener.failed("API Error (overloaded?)")
+                    listener.success(exercises);
+                }
+                catch (JSONException e) {
+                    listener.failed("JSON error");
+                }
+            }, error -> listener.failed("API Error (overloaded?)")
         );
 
         queue.add(request);

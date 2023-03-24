@@ -12,7 +12,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.racktrack.NewQuoteActivity;
 import com.example.racktrack.R;
 import com.example.racktrack.RoomDatabase.Quote;
 

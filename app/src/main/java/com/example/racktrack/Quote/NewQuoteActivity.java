@@ -1,4 +1,4 @@
-package com.example.racktrack;
+package com.example.racktrack.Quote;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.racktrack.R;
 
 public class NewQuoteActivity extends AppCompatActivity {
 

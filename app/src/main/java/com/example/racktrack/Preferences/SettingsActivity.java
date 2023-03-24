@@ -1,4 +1,4 @@
-package com.example.racktrack;
+package com.example.racktrack.Preferences;
 
 import android.os.Bundle;
 import android.view.MenuItem;

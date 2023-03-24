@@ -30,7 +30,6 @@ public class QuoteListActivity extends AppCompatActivity implements OnItemClickL
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         this.quoteViewModel = new ViewModelProvider(this).get(QuoteViewModel.class);
-
         this.quoteViewModel.getAllQuotes().observe(this, adapter::submitList);
 
         ActivityResultLauncher<Intent> activityResultLauncher = this.getActivityResultLauncher();

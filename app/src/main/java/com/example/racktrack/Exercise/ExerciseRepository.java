@@ -1,7 +1,6 @@
 package com.example.racktrack.Exercise;
 
 import android.content.Context;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,13 +18,10 @@ import java.util.ArrayList;
 public class ExerciseRepository {
 
     private final RequestQueue queue;
-    private final Context context;
-
     private int offset;
 
     public ExerciseRepository(Context context) {
         this.queue = Volley.newRequestQueue(context);
-        this.context = context;
         this.offset = 100;
     }
 
@@ -37,6 +33,7 @@ public class ExerciseRepository {
         }
     }
 
+    // creates a new url where the offset is 1 less, to show the draw refresh functional
     public URL createRefreshUrl(int limit) {
         try {
             if (offset >= 1) {
@@ -73,9 +70,9 @@ public class ExerciseRepository {
                         listener.success(exercises);
                     }
                     catch (JSONException e) {
-                        Toast.makeText(context,"Error parsing JSON",Toast.LENGTH_LONG).show();
+                        listener.failed("JSON error");
                     }
-                }, error -> Toast.makeText(context,"Overloaded the API, try again later",Toast.LENGTH_LONG).show()
+                }, error -> listener.failed("API Error (overloaded?)")
         );
 
         queue.add(request);

@@ -8,6 +8,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.racktrack.R;
 
@@ -53,5 +54,10 @@ public class ExerciseListActivity extends AppCompatActivity implements ExerciseL
     public void success(ArrayList<Exercise> exercises) {
         this.progressBarContainer.setVisibility(View.GONE);
         this.exercises.setValue(exercises);
+    }
+
+    @Override
+    public void failed(String error) {
+        Toast.makeText(this, error,Toast.LENGTH_LONG).show();
     }
 }

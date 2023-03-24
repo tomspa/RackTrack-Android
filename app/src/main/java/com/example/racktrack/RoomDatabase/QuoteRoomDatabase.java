@@ -37,7 +37,7 @@ public abstract class QuoteRoomDatabase extends RoomDatabase {
     }
 
     //Adds seed data to quotes list
-    private static RoomDatabase.Callback roomDatabaseCallback = new RoomDatabase.Callback() {
+    private static final RoomDatabase.Callback roomDatabaseCallback = new RoomDatabase.Callback() {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);

@@ -3,17 +3,12 @@ package com.example.racktrack;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.Menu;
@@ -24,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.racktrack.Exercise.ExerciseListActivity;
+import com.example.racktrack.Music.MusicActivity;
 import com.example.racktrack.Quote.QuoteListActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -54,6 +50,12 @@ public class MainActivity extends AppCompatActivity {
 
         activityResultLauncher = this.getActivityResultLauncher();
         cameraButton.setOnClickListener(view -> requestPermission());
+
+        Button musicButton = findViewById(R.id.main_music_button);
+        musicButton.setOnClickListener(view -> {
+            Intent intent = new Intent(this, MusicActivity.class);
+            startActivity(intent);
+        });
     }
 
     @Override

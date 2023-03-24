@@ -45,6 +45,7 @@
         android:id="@+id/camera_button"
         android:layout_width="wrap_content"
         android:layout_height="55dp"
+        android:layout_marginStart="150dp"
         android:layout_marginBottom="10dp"
         android:text="@string/camera_button_text"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -59,5 +60,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_camera" />
+
+    <Button
+        android:id="@+id/main_music_button"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/main_music_button_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

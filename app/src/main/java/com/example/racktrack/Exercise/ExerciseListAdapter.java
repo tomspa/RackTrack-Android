@@ -6,8 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
-import com.example.racktrack.RoomDatabase.Quote;
-
 public class ExerciseListAdapter extends ListAdapter<Exercise, ExerciseViewHolder> {
 
     protected ExerciseListAdapter(@NonNull DiffUtil.ItemCallback<Exercise> diffCallback) {

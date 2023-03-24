@@ -17,7 +17,6 @@ import com.google.android.material.textfield.TextInputEditText;
 public class QuoteEditActivity extends AppCompatActivity {
 
     private TextInputEditText textView;
-    private View saveButton;
 
     private QuoteDAO quoteDAO;
     @Override
@@ -26,7 +25,7 @@ public class QuoteEditActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quote_edit);
 
         this.quoteDAO = QuoteRoomDatabase.getDatabase(this).quoteDAO();
-        this.saveButton = findViewById(R.id.saveQuoteButton);
+        View saveButton = findViewById(R.id.saveQuoteButton);
         this.textView = findViewById(R.id.quoteEditField);
 
         // get the id from the intent
@@ -42,7 +41,7 @@ public class QuoteEditActivity extends AppCompatActivity {
             }
         });
 
-        this.saveButton.setOnClickListener(view -> {
+        saveButton.setOnClickListener(view -> {
             Editable text = this.textView.getText();
 
             if (text != null) {

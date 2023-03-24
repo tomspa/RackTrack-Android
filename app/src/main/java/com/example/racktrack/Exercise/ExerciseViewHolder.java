@@ -12,8 +12,8 @@ import com.example.racktrack.R;
 
 public class ExerciseViewHolder extends RecyclerView.ViewHolder {
 
-    private TextView titleView;
-    private TextView descView;
+    private final TextView titleView;
+    private final TextView descView;
 
     public ExerciseViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -24,7 +24,7 @@ public class ExerciseViewHolder extends RecyclerView.ViewHolder {
     public void bind(String name, String desc) {
         this.titleView.setText(name);
         this.descView.setText(desc);
-    };
+    }
 
     static ExerciseViewHolder create(ViewGroup parent) {
         View view = LayoutInflater.from(parent.getContext())

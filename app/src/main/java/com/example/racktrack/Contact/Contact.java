@@ -1,9 +1,11 @@
 package com.example.racktrack.Contact;
 
+import androidx.annotation.NonNull;
+
 public class Contact {
-    private String firstName;
-    private String lastName;
-    private String phoneNumber;
+    private final String firstName;
+    private final String lastName;
+    private final String phoneNumber;
 
     public Contact(String firstName, String lastName, String phoneNumber) {
         this.firstName = firstName;
@@ -15,26 +17,15 @@ public class Contact {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public String getLastName() {
         return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
+    @NonNull
     @Override
     public String toString() {
         return "☎ " + this.getFirstName() + " " + this.getLastName() + ": " + this.getPhoneNumber();

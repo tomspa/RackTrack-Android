@@ -5,9 +5,6 @@ import android.view.MenuItem;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.PreferenceFragmentCompat;
-
-import com.example.racktrack.Preferences.PreferencesFragment;
 import com.example.racktrack.R;
 
 public class SettingsActivity extends AppCompatActivity {

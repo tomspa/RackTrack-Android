@@ -51,7 +51,9 @@ public class ExerciseListActivity extends AppCompatActivity implements ExerciseL
 
             if (isNetworkAvailable()) {
                 this.progressBarContainer.setVisibility(View.VISIBLE);
-                exerciseRepository.getExercises(this, exerciseRepository.createRefreshUrl(exercises.getValue().size() + 1));
+                if (exercises.getValue() != null) {
+                    exerciseRepository.getExercises(this, exerciseRepository.createRefreshUrl(exercises.getValue().size() + 1));
+                }
             }
             else { this.failed("No Internet"); }
         });

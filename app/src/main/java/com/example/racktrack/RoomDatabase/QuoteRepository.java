@@ -8,8 +8,8 @@ import java.util.List;
 
 public class QuoteRepository {
 
-    private QuoteDAO quoteDAO;
-    private LiveData<List<Quote>> allQuotes;
+    private final QuoteDAO quoteDAO;
+    private final LiveData<List<Quote>> allQuotes;
 
 
     public QuoteRepository(Application application) {
@@ -23,8 +23,6 @@ public class QuoteRepository {
     }
 
     public void insert(Quote quote) {
-        QuoteRoomDatabase.databaseWriteExecutor.execute(() -> {
-            quoteDAO.insert(quote);
-        });
+        QuoteRoomDatabase.databaseWriteExecutor.execute(() -> quoteDAO.insert(quote));
     }
 }

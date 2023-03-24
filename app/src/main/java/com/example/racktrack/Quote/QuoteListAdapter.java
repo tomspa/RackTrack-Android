@@ -28,9 +28,7 @@ public class QuoteListAdapter extends ListAdapter<Quote, QuoteViewHolder> {
         Quote current = getItem(position);
         holder.bind(current.getQuote());
 
-        holder.itemView.findViewById(R.id.edit_quoteItem_button).setOnClickListener(view -> {
-            listener.onItemClick(current.getId());
-        });
+        holder.itemView.findViewById(R.id.edit_quoteItem_button).setOnClickListener(view -> listener.onItemClick(current.getId()));
     }
 
     static class QuoteDiff extends DiffUtil.ItemCallback<Quote> {

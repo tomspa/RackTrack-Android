@@ -37,9 +37,12 @@
     <string name="type_a_quote_prompt">Type a quote to keep you inspired!</string>
     <string name="quotes_text">Quotes</string>
     <string name="exercises_text">Exercises</string>
-    <string name="camera_button_text">Click to make gym picture</string>
+    <string name="camera_button_text">Take picture</string>
     <string name="gym_picture_content_description">gym picture</string>
     <string name="allow_camera_access_string">Change app settings to allow access to the camera</string>
-    <string name="music_player_title">Music player</string>
     <string name="settings_title">Settings</string>
+    <string name="music">Music</string>
+    <string name="start_music_text">Click to start music</string>
+    <string name="pause_button_text">Click to pause music</string>
+    <string name="stop_button_text">Click to stop music</string>
 </resources>

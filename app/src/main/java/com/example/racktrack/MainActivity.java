@@ -3,12 +3,17 @@ package com.example.racktrack;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.Menu;
@@ -19,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.racktrack.Exercise.ExerciseListActivity;
+import com.example.racktrack.Music.MusicActivity;
 import com.example.racktrack.Quote.QuoteListActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -43,12 +49,34 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        Button musicButton = findViewById(R.id.music_button);
+        musicButton.setOnClickListener(view -> {
+            Intent intent = new Intent(this, MusicActivity.class);
+            startActivity(intent);
+        });
+
         Button cameraButton = findViewById(R.id.camera_button);
         gymImageview = findViewById(R.id.gym_picture_imageview);
 
 
         activityResultLauncher = this.getActivityResultLauncher();
         cameraButton.setOnClickListener(view -> requestPermission());
+
+        requestNotificationPermission();
+    }
+
+    private void requestNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
+        {
+            String[] permissions = {Manifest.permission.POST_NOTIFICATIONS};
+            ActivityCompat.requestPermissions(this, permissions, 1);
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel notificationChannel =
+                    new NotificationChannel("music_channel", "Name", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            manager.createNotificationChannel(notificationChannel);
+        }
     }
 
     @Override
